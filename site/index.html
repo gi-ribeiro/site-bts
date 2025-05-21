@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Recomendações de Álbuns do BTS</title>
+  <style>
+    body {
+      background-color: #a479d1;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .logo {
+      display: block;
+      margin: 0 auto 30px auto;
+      width: 80px;
+      height: auto;
+    }
+    .album-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background-color: white;
+      border: 2px solid #7207d6;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+    }
+    .card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 16px;
+    }
+    .card-content h2 {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+    .card-content p {
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+    }
+    .btn {
+      padding: 8px 16px;
+      border: 2px solid #9333ea;
+      background: transparent;
+      color: #8200fc;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background-color: #7e00f5;
+      color: white;
+    }
+  </style>
+  /* Rodapé */
+  footer {
+    background-color: #6b21a8; /* Tom de roxo escuro, mas não excessivo */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    border-top: 4px solid #9333ea;
+  }
+  footer a {
+    color: #e9d5ff;
+    text-decoration: none;
+  }
+  footer a:hover {
+    text-decoration: underline;
+  }
+  <footer>
+    <p>Feito com 💜 por Giovanna Ribeiro 3DS. <a href="#"></p>
+  </footer>
+</head>
+<body>
+
+  <h1>Recomendações de Álbuns do BTS</h1>
+  <img src="https://i.scdn.co/image/ab6761610000e5ebd642648235ebf3460d2d1f6a" alt="BTS Logo" class="logo"/>
+
+  <div class="album-grid" id="albumGrid"></div>
+
+  <script>
+    const albums = [ 
+      {
+        title: "2 Cool 4 Skool",
+        description: "Este é o álbum de estreia do BTS e traz um estilo agressivo e provocador. Com uma sonoridade hip hop forte, ele critica o sistema educacional e a pressão sobre os jovens. É o início da identidade rebelde do grupo.",
+        image: "https://i.scdn.co/image/ab67616d0000b2732666df197eac73ae823e1e67",
+      },
+      {
+        title: "O!RUL8,2?",
+        description: "Dando continuidade ao tom crítico, este mini-álbum aprofunda a discussão sobre a busca por sonhos e a liberdade individual. O grupo desafia a ideia de sucesso imposto pela sociedade. Faixas marcantes: N.O, Attack on Bangtan.",
+        image: "https://i.scdn.co/image/ab67616d00001e02440d112131cfc66bbdaafe1a",
+      },
+      {
+        title: "Skool Luv Affair",
+        description: "Este álbum aborda a vida escolar e o amor jovem com batidas vibrantes e letras emocionais. Mostra um lado mais romântico e leve do BTS, ainda mantendo sua força juvenil. Faixas marcantes: Boy in Luv, Just One Day, Tomorrow.",
+        image: "https://i.scdn.co/image/ab67616d0000b273ab9433cc4b9cda9431be879a",
+      },
+      {
+        title: "Dark & Wild",
+        description: "Primeiro álbum de estúdio completo do grupo, mergulha em temas como ciúme, amor não correspondido e conflitos emocionais. A musicalidade é mais madura e diversificada. Faixas marcantes: Danger, War of Hormone, Let Me Know.",
+        image: "https://i.scdn.co/image/ab67616d00001e02abe7090bc3ae94d741dfaf6b",
+      },
+      {
+        title: "The Most Beautiful Moment in Life, Part 1",
+        description: "Marca a transição para uma fase mais introspectiva e poética. Explora a beleza e a dor da juventude, tratando de inseguranças, crescimento e incertezas. Faixa marcante: I Need U.",
+        image: "https://i.scdn.co/image/ab67616d0000b2731504edb7a9a5e4e64547fb94",
+      },
+      {
+        title: "The Most Beautiful Moment in Life, Part 2",
+        description: "Continua os temas do álbum anterior com uma sonoridade mais refinada e emocional. Destaca o amadurecimento dos integrantes enquanto artistas e jovens adultos. Faixas marcantes: Run, Butterfly'.",
+        image: "https://i.scdn.co/image/ab67616d0000b273a5e9b18ada0905fa82cd4756",
+      },
+      {
+        title: "The Most Beautiful Moment in Life: Young Forever",
+        description: "Compilação das partes 1 e 2 com novas músicas, esse álbum encerra a era HYYH. Além de faixas regravadas e remixadas, inclui sucessos inéditos como “Fire” e “Save Me”, que se tornaram hinos entre os fãs. O álbum celebra o amadurecimento contínuo do grupo.",
+        image: "https://i.scdn.co/image/ab67616d0000b273c6dbc63cf145b4ff6bee3322",
+      },
+      {
+        title: "Wings",
+        description: "Inspirado em “Demian”, de Hermann Hesse, esse álbum mergulha em temas como tentação, pecado e autoconhecimento. Cada membro apresenta uma faixa solo, refletindo suas experiências pessoais. “Blood Sweat & Tears” é uma obra-prima visual e sonora, mostrando a evolução artística do grupo.",
+        image: "https://i.scdn.co/image/ab67616d0000b2738bd5d941f9ced8e7f9c60dd4",
+      },
+      {
+        title: "You Never Walk Alone",
+        description: "Uma extensão do Wings, esse álbum traz mensagens de empatia e resiliência. “Spring Day” é considerada uma das músicas mais emocionantes da carreira do BTS, com letras sobre saudade e perda. “Not Today” traz de volta a energia combativa, incentivando resistência frente às adversidades.",
+        image: "https://i.scdn.co/image/ab67616d0000b2731fd0a8fc28b2a0a5d9cdc6c6",
+      },
+      {
+        title: "Love Yourself: Her",
+        description: "Início da trilogia Love Yourself, explora o amor romântico e a fase da paixão. Com uma sonoridade mais pop e colorida, faixas como “DNA” e “Mic Drop” demonstram um BTS mais confiante e internacional. A parceria com Steve Aoki trouxe reconhecimento global.",
+        image: "https://i.scdn.co/image/ab67616d0000b273829305487c8f3b96a1d955b3",
+      },
+      {
+        title: "Love Yourself: Tear",
+        description: "Essa segunda parte da trilogia mergulha no sofrimento de um amor que termina. As músicas são mais melancólicas e profundas, com destaque para “Fake Love”, que expõe a dor de esconder sua verdadeira identidade por causa de alguém. Um álbum emocionalmente intenso e sonoramente grandioso.",
+        image: "https://i.scdn.co/image/ab67616d0000b2738fbcf6544ff02a8959a81781",
+      },
+      {
+        title: "Love Yourself: Answer",
+        description: "Conclusão da trilogia, combina faixas dos álbuns anteriores com músicas novas. “IDOL” celebra o amor-próprio e a identidade, enquanto “Euphoria” é uma das faixas solo mais populares, marcada por sentimentos de liberdade e felicidade. O álbum encerra a narrativa com uma nota otimista.",
+        image: "https://i.scdn.co/image/ab67616d0000b2733825e6d4d02e4b4c0cec7e1d",
+      },
+      {
+        title: "Map of the Soul: Persona",
+        description: "Explora conceitos da psicologia de Carl Jung: persona, ego e sombra. “Boy With Luv” (com Halsey) é leve e contagiante, abordando conexões genuínas. O álbum reflete sobre como o grupo se vê diante da fama e da sua imagem pública'.",
+        image: "https://i.scdn.co/image/ab67616d0000b27318d0ed4f969b376893f9a38f",
+      },
+      {
+        title: "Map of the Soul: 7",
+        description: "Um dos álbuns mais ambiciosos do grupo, celebra os 7 anos de carreira e os 7 membros. Mistura força e vulnerabilidade. “Black Swan” fala sobre o medo de perder a paixão pela arte, enquanto “ON” representa superação e resistência. Um projeto grandioso, visual e musicalmente'.",
+        image: "https://i.scdn.co/image/ab67616d0000b273505190077497c230422f2934",
+      },
+      {
+        title: "BE",
+        description: "Criado durante a pandemia, expressa sentimentos de isolamento, esperança e reconstrução. “Life Goes On” simboliza a continuidade da vida mesmo diante de incertezas. O álbum tem um tom intimista, com participação direta dos membros na produção e composição'.",
+        image: "https://i.scdn.co/image/ab67616d0000b273c07d5d2fdc02ae252fcd07e5",
+      },
+      {
+        title: "Proof",
+        description: "Álbum antológico que comemora os 9 anos do BTS. Compila os maiores sucessos da carreira com faixas inéditas. “Yet To Come” transmite uma mensagem de que o melhor ainda está por vir, mesmo com o grupo entrando em um novo capítulo. É uma carta de amor aos fãs e à trajetória do grupo.",
+        image: "https://i.scdn.co/image/ab67616d0000b27317db30ce3f081d6818a8ad49",
+      },
+    ];
+
+    const albumGrid = document.getElementById('albumGrid');
+
+    albums.forEach(album => {
+      const card = document.createElement('div');
+      card.className = 'card';
+
+      card.innerHTML = `
+        <img src="${album.image}" alt="${album.title}">
+        <div class="card-content">
+          <h2>${album.title}</h2>
+          <p>${album.description}</p>
+          <button class="btn">Saiba mais</button>
+        </div>
+      `;
+
+      albumGrid.appendChild(card);
+    });
+  </script>
+
+</body>
+</html>
